@@ -1,0 +1,15 @@
+# ESP-IDF
+build/
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# Go
+backend/bin/
+*.env
+
+# IDEs
+.vscode/
+.idea/
+*.DS_Store

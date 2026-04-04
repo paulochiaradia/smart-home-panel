@@ -17,11 +17,11 @@ void sensor_task(void *pvParameters) {
     mpu6050_reading_t mpu_data;
 
     while (1) {
-        // Leitura do DHT11 (Ainda usando o código mockado/falso)
+        // Leitura real do DHT11 via GPIO
         if (dht11_read(&dht_data)) {
             ESP_LOGI(TAG, "DHT11 -> Temp: %.1f°C | Umidade: %.1f%%", dht_data.temperature, dht_data.humidity);
         } else {
-            ESP_LOGE(TAG, "Falha ao ler o DHT11");
+            ESP_LOGE(TAG, "Falha ao ler o DHT11. Verifique a conexao no pino 4.");
         }
 
         // Leitura real do MPU6050 via I2C

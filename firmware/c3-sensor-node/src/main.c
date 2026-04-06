@@ -60,15 +60,19 @@ void sensor_task(void *pvParameters) {
                 was_moving = true; // Marca que o sensor entrou em movimento
             } 
             else if (was_moving) {
-                // ESTABILIZOU: Se antes estava a mexer e agora parou
                 ESP_LOGI(TAG, "Sensor estabilizado novamente.");
                 
-                // Som de confirmação (dois bipes rápidos ascendentes)
+                // 1. Atualiza o estado na hora
+                payload.alert_motion = false; 
+                was_moving = false;
+
+                // 2. DISPARA IMEDIATAMENTE (antes do bipe e do delay)
+                espnow_send_data(&payload);
+
+                // 3. Toca o bipe depois de já ter avisado o S3
                 buzzer_play_tone(1000, 100);
                 vTaskDelay(pdMS_TO_TICKS(50));
                 buzzer_play_tone(1500, 100);
-                
-                was_moving = false; // Reset do estado
             }
         }
 

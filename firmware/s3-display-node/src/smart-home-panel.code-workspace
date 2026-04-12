@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "c3-sensor-node",
+			"path": "../../c3-sensor-node"
+		},
+		{
+			"name": "s3-display-node",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

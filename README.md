@@ -6,6 +6,9 @@
 
 Um sistema de monitoramento residencial IoT focado em **baixa latência** e **alta resiliência**. O projeto consiste em uma arquitetura de nós distribuídos, operando de forma autônoma e independente da infraestrutura de rede local (roteadores/internet), garantindo que alertas críticos de segurança sejam processados em tempo real.
 
+![Protótipo](files/project.jpeg)
+
+
 ## 📐 Arquitetura do Sistema
 
 O sistema foi desenhado separando a responsabilidade de sensoriamento da interface visual, comunicando-se através da camada MAC usando o protocolo **ESP-NOW**. Isso garante uma transmissão instantânea (latência < 5ms) e elimina pontos únicos de falha (Single Point of Failure) ligados a roteadores Wi-Fi tradicionais.
